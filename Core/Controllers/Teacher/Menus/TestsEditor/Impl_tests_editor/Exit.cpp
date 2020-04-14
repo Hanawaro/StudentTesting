@@ -7,8 +7,7 @@ bool TestsEditor::active_exit(void) {
     
     switch (tmp) {
         case '\t':
-        case KEY_DOWN:
-            locale = Locale::Change;
+        locale = Locale::Change;
             draw();
             break;
         case KEY_UP:

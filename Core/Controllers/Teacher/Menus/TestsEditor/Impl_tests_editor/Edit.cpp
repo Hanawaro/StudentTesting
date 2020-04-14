@@ -28,6 +28,7 @@ bool TestsEditor::active_edit(void) {
             deep = false;
             edit_test.open(all_tests[g_locale][index]);
             set_tests();
+            locale = Locale::Show;
             draw();
             break;
         default:
