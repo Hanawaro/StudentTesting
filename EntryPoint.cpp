@@ -4,14 +4,12 @@
 
 #include "CrossPlatform.hpp"
 #include "InitUsers.hpp"
-#include <locale.h>
-
 
 int main(int argc, const char **argv) {
     cp_setlocale();
     
     // Reset users db
-    // InitUsers::init();
+    InitUsers::init();
     
     // init ncurses
     initscr();
@@ -46,7 +44,7 @@ int main(int argc, const char **argv) {
     
     // start application
     Core core;
-    core.Start();
+    core.start();
 
     // exit from ncurses mode
     endwin();

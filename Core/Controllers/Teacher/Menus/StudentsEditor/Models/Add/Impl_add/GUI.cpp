@@ -22,25 +22,25 @@ void Add::draw(void) {
 void Add::draw_active_login(void) {
     curs_set(1);
     
-    wmove(m_Window, LINES/4 + 3, COLS/2 - LEFT + (int) iomanager::strlen(show_login));
+    wmove(m_Window, LINES/4 + 3, COLS/2 + 1 - LEFT + (int) iomanager::strlen(show_login));
 }
 
 void Add::draw_active_name(void) {
     curs_set(1);
     
-    wmove(m_Window, LINES/4 + 5, COLS/2 - LEFT + (int) iomanager::strlen(show_name));
+    wmove(m_Window, LINES/4 + 5, COLS/2 + 1 - LEFT + (int) iomanager::strlen(show_name));
 }
 
 void Add::draw_active_second_name(void) {
     curs_set(1);
     
-    wmove(m_Window, LINES/4 + 7, COLS/2 - LEFT + (int) iomanager::strlen(show_second_name));
+    wmove(m_Window, LINES/4 + 7, COLS/2 + 1 - LEFT + (int) iomanager::strlen(show_second_name));
 }
 
 void Add::draw_active_password(void) {
     curs_set(1);
     
-    wmove(m_Window, LINES/4 + 9, COLS/2 - LEFT + (int) iomanager::strlen(show_password));
+    wmove(m_Window, LINES/4 + 9, COLS/2 + 1 - LEFT + (int) iomanager::strlen(show_password));
 }
 
 void Add::draw_active_register(void) {

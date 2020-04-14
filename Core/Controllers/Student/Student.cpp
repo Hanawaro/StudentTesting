@@ -22,7 +22,7 @@ bool StudentMenu::open(User user) {
     
     init();
     
-    while ((locale != Locale::Exit && locale != Locale::UnsaveExit) || (!isExit)) {
+    while ((locale != Locale::Exit && locale != Locale::UnsaveExit) || (!is_exit)) {
         switch (locale) {
             case Locale::Change:
                 if ( active_change() )
@@ -45,7 +45,7 @@ bool StudentMenu::open(User user) {
     
     delwin(m_Window);
     
-    if (!isAuth) {
+    if (!is_auth) {
         std::ofstream authorization("Source/authorization");
         authorization.close();
         return true;
@@ -82,8 +82,8 @@ void StudentMenu::reset(void) {
     show_locale = ShowLocale::First;
     change_locale = ChangeLocale::Training;
     
-    isAuth = true;
-    isExit = false;
+    is_auth = true;
+    is_exit = false;
     
     text_login       = " Логин:  ";
     text_name        = " Имя:  ";
@@ -110,13 +110,13 @@ void StudentMenu::reset_login(void) {
 }
 
 void StudentMenu::reset_name(void) {
-    if (m_User.first_name.size() > MAXIMAL_SYMBOLS) {
+    if (m_User.name.size() > MAXIMAL_SYMBOLS) {
         show_name.clear();
         for (size_t i = 0; i < MAXIMAL_SYMBOLS; i++)
-            show_name += m_User.first_name[i];
+            show_name += m_User.name[i];
         show_name[show_name.size() - 1] = '.';
     } else {
-        show_name = m_User.first_name;
+        show_name = m_User.name;
         text_name[text_name.size() - 1] = ' ';
     }
 }

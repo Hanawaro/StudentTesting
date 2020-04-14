@@ -3,7 +3,7 @@
 void Edit::open(void) {
     init();
     
-    while ((locale != Locale::Exit) || (!isExit)) {
+    while ((locale != Locale::Exit) || (!is_exit)) {
         switch (locale) {
             case Locale::Login:
                 if ( active_login() && users.size() )
@@ -58,14 +58,14 @@ void Edit::reset(void) {
     user_index = 0;
     
     deep = false;
-    isExit = false;
+    is_exit = false;
     
     load_users();
     
     if (users.size()) {
         real_login = users[user_index].login;
         reset_login();
-        real_name = users[user_index].first_name;
+        real_name = users[user_index].name;
         reset_change();
     }
     m_Window = nullptr;

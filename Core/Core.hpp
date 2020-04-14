@@ -7,12 +7,11 @@
 
 class Core {
 public:
-    void Start(void);
+    void start(void);
 private:
-    bool Running = false;
-    Authorization authorization;
-    class StudentMenu student;
-    class TeacherMenu teacher;
+    Authorization m_authorization;
+    class StudentMenu m_student;
+    class TeacherMenu m_teacher;
 };
 
 #endif

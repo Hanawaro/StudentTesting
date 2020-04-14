@@ -81,7 +81,7 @@ private:
     EditTest edit_test;
     
     bool empty[3] = { false, false, false };
-    bool isExit = false;
+    bool is_exit = false;
     bool deep = false;
     
     int page = 1;

@@ -5,7 +5,7 @@ void Profile::open(User *user) {
     
     init();
     
-    while ((locale != Locale::Exit) || (!isExit)) {
+    while ((locale != Locale::Exit) || (!is_exit)) {
         switch (locale) {
             case Locale::Login:
                 if ( active_login() )
@@ -60,7 +60,7 @@ void Profile::reset(void) {
     
     deep = false;
     deepPassword = false;
-    isExit = false;
+    is_exit = false;
     
     text_hello       = "Ваш аккаунт";
     text_status      = "Учитель";
@@ -74,7 +74,7 @@ void Profile::reset(void) {
     text_new_password = "Новый пароль:  ";
     
     real_login = new_real_login = m_User->login;
-    real_name = new_real_name = m_User->first_name;
+    real_name = new_real_name = m_User->name;
     real_second_name = new_real_second_name = m_User->second_name;
   
     reset_login();

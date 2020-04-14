@@ -29,7 +29,7 @@ bool Profile::active_login(void) {
                 } if (check_login()) {
                     deep = false;
                     
-                    m_db_user.setLogin(m_User->login, new_real_login);
+                    m_db_user.set_login(m_User->login, new_real_login);
                     
                     set_save_login();
             

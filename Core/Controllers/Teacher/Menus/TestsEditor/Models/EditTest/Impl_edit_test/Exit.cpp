@@ -18,7 +18,7 @@ bool EditTest::active_exit(void) {
             draw();
             break;
         case '\n':
-            isExit = true;
+            is_exit = true;
             edit_test();
             draw();
             break;

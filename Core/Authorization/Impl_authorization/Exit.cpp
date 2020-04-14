@@ -8,7 +8,7 @@ bool Authorization::active_exit(void) {
     
     switch (tmp) {
         case '\n':
-            isExit = true;
+            is_exit = true;
             break;
         case KEY_UP:
         case KEY_RIGHT:

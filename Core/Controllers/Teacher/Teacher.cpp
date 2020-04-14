@@ -5,7 +5,7 @@ bool TeacherMenu::open(User user) {
     
     init();
     
-    while ((locale != Locale::Exit && locale != Locale::UnsaveExit) || (!isExit)) {
+    while ((locale != Locale::Exit && locale != Locale::UnsaveExit) || (!is_exit)) {
         switch (locale) {
             case Locale::Profile:
                 if ( active_profile() )
@@ -32,7 +32,7 @@ bool TeacherMenu::open(User user) {
     
     delwin(m_Window);
     
-    if (!isAuth) {
+    if (!is_auth) {
         std::ofstream authorization("Source/authorization");
         authorization.close();
         return true;
@@ -66,6 +66,6 @@ void TeacherMenu::reset(void) {
     m_Window = nullptr;
     locale = Locale::Profile;
 
-    isAuth = true;
-    isExit = false;
+    is_auth = true;
+    is_exit = false;
 }

@@ -63,7 +63,7 @@ private:
     db_user m_db_user;
     db_student m_db_student;
     
-    bool isExit = false;
+    bool is_exit = false;
     bool empty = false;
     bool once = false;
     bool isAll = false;

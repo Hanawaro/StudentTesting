@@ -27,10 +27,10 @@ bool Testing::active_exit(void) {
             if (!isAll && !empty) {
                 isAll = true;
             } else if (empty) {
-                isExit = true;
+                is_exit = true;
             } else {
                 set_new_result();
-                isExit = true;
+                is_exit = true;
             }
             draw();
             break;

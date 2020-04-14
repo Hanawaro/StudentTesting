@@ -16,13 +16,13 @@ void Students::set_sort_up(void) {
     for (int i = 0; i < tmp.size(); i++) {
         for (int j = 0; j < all_users.size(); j++) {
             if (all_users[j].user.second_name == tmp[i]) {
-                if (all_users[j].user.first_name.size() > MAXIMAL_SYMBOLS) {
-                    std::string tmp_name = all_users[j].user.first_name;
-                    all_users[j].user.first_name = "";
+                if (all_users[j].user.name.size() > MAXIMAL_SYMBOLS) {
+                    std::string tmp_name = all_users[j].user.name;
+                    all_users[j].user.name = "";
                     for (size_t i = 0; i < MAXIMAL_SYMBOLS; i++) {
-                        all_users[j].user.first_name += tmp_name[i];
+                        all_users[j].user.name += tmp_name[i];
                     }
-                    all_users[j].user.first_name[all_users[j].user.first_name.size() - 1] = '.';
+                    all_users[j].user.name[all_users[j].user.name.size() - 1] = '.';
                 }
                 if (all_users[j].user.second_name.size() > MAXIMAL_SYMBOLS) {
                     std::string tmp_name = all_users[j].user.second_name;

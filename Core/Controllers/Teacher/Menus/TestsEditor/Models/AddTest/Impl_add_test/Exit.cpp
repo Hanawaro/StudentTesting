@@ -18,7 +18,7 @@ bool AddTest::active_exit(void) {
             draw();
             break;
         case '\n':
-            isExit = true;
+            is_exit = true;
             draw();
             break;
         default:

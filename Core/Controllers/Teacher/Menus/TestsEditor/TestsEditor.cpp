@@ -5,7 +5,7 @@ int g_locale = 0;
 void TestsEditor::open(void) {
     init();
     
-    while ((locale != Locale::Exit) || (!isExit)) {
+    while ((locale != Locale::Exit) || (!is_exit)) {
         switch (locale) {
             case Locale::Change:
                 if ( active_change() )
@@ -71,7 +71,7 @@ void TestsEditor::reset(void) {
     show_locale = ShowLocale::First;
     
     for (size_t i = 0; i < 3; i++) empty[i] = false;
-    isExit = false;
+    is_exit = false;
     deep = false;
     
     page = 1;
@@ -79,16 +79,18 @@ void TestsEditor::reset(void) {
 }
 
 void TestsEditor::reset_show(void) {
-    int index = (page - 1) * MAXIMAL_TESTS;
-    int limit = (index + MAXIMAL_TESTS) < all_tests[g_locale].size() ? index + MAXIMAL_TESTS : (int) all_tests[g_locale].size();
-    for (int i = index; i < limit; i++) {
-        text_tests[i%MAXIMAL_TESTS].clear();
-        if (all_tests[g_locale][i].question.size() > 60) {
-            for (size_t j = 0; j < 60 - 1; j++)
-                text_tests[i%MAXIMAL_TESTS] += all_tests[g_locale][i].question[j];
-            text_tests[i%MAXIMAL_TESTS] += '.';
-        } else {
-            text_tests[i%MAXIMAL_TESTS] = all_tests[g_locale][i].question;
+    if (!empty[g_locale]) {
+        int index = (page - 1) * MAXIMAL_TESTS;
+        int limit = (index + MAXIMAL_TESTS) < all_tests[g_locale].size() ? index + MAXIMAL_TESTS : (int) all_tests[g_locale].size();
+        for (int i = index; i < limit; i++) {
+            text_tests[i%MAXIMAL_TESTS].clear();
+            if (all_tests[g_locale][i].question.size() > 60) {
+                for (size_t j = 0; j < 60 - 1; j++)
+                    text_tests[i%MAXIMAL_TESTS] += all_tests[g_locale][i].question[j];
+                text_tests[i%MAXIMAL_TESTS] += '.';
+            } else {
+                text_tests[i%MAXIMAL_TESTS] = all_tests[g_locale][i].question;
+            }
         }
     }
 }
@@ -100,6 +102,8 @@ void TestsEditor::reset_pages(void) {
         else
             pages = (int) all_tests[g_locale].size() / MAXIMAL_TESTS + 1;
     } else {
+        pages = 1;
+        page = 1;
         locale = Locale::Change;
     }
 }

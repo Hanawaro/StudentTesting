@@ -11,9 +11,9 @@ void Edit::draw(void) {
     
     if (!users.size()) wcolor_set(m_Window, iomanager::TEXT, NULL);
     mvwaddstr(m_Window, LINES/4 + 4, (COLS - (int) (text_left.size() + text_right.size() + iomanager::strlen(show_name + show_second_name) + 1))/2, text_left.c_str());
-    waddstr(m_Window, show_name.c_str());
-    waddch(m_Window, ' ');
     waddstr(m_Window, show_second_name.c_str());
+    waddch(m_Window, ' ');
+    waddstr(m_Window, show_name.c_str());
     waddstr(m_Window, text_right.c_str());
     if (!users.size()) wcolor_set(m_Window, iomanager::DISABLE, NULL);
     

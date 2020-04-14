@@ -65,7 +65,7 @@ private:
     Third third_menu;
     Total total_menu;
     
-    bool isExit = false;
+    bool is_exit = false;
     
     const std::string text_hello    = " Список учеников ";
     const std::string text_students = " Ученики ";

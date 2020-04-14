@@ -39,7 +39,7 @@ bool Third::active_exit(void) {
             }
             break;
         case '\n':
-            isExit = true;
+            is_exit = true;
             break;
         default:
             break;

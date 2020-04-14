@@ -4,7 +4,7 @@ void Testing::start(const User& user) {
     m_User = user;
     init();
     
-    while ((locale != Locale::Exit) || (!isExit)) {
+    while ((locale != Locale::Exit) || (!is_exit)) {
         switch (locale) {
             case Locale::First:
                 if ( active_first() && !empty)
@@ -53,7 +53,7 @@ void Testing::reset(void) {
     m_Window = nullptr;
     locale = Locale::First;
     
-    isExit = false;
+    is_exit = false;
     empty = false;
     once = false;
     isAll = false;

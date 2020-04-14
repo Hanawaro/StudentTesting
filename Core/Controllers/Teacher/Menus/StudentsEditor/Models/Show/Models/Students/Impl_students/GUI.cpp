@@ -36,7 +36,7 @@ void Students::draw(void) {
             wattron(m_Window, COLOR_PAIR(iomanager::SORT));
             mvwaddstr(m_Window, LINES/4 + 3 + i%MAXIMAL_USERS, COLS/2 - MAXIMAL_SYMBOLS*2 - 2, sort_up_users[i].user.second_name.c_str());
             waddch(m_Window, ' ');
-            mvwaddstr(m_Window, LINES/4 + 3 + i%MAXIMAL_USERS, COLS/2 - MAXIMAL_SYMBOLS - 1, sort_up_users[i].user.first_name.c_str());
+            mvwaddstr(m_Window, LINES/4 + 3 + i%MAXIMAL_USERS, COLS/2 - MAXIMAL_SYMBOLS - 1, sort_up_users[i].user.name.c_str());
             waddstr(m_Window, "  ");
             wattroff(m_Window, COLOR_PAIR(iomanager::SORT));
             mvwaddstr(m_Window, LINES/4 + 3 + i%MAXIMAL_USERS, COLS/2 + 1, (getMark(sort_up_users[i].student.first) + "   ").c_str());
@@ -54,7 +54,7 @@ void Students::draw(void) {
             wattron(m_Window, COLOR_PAIR(iomanager::SORT));
             mvwaddstr(m_Window, LINES/4 + 3 + i%MAXIMAL_USERS, COLS/2 - MAXIMAL_SYMBOLS*2 - 2, sort_down_users[i].user.second_name.c_str());
             waddch(m_Window, ' ');
-            mvwaddstr(m_Window, LINES/4 + 3 + i%MAXIMAL_USERS, COLS/2 - MAXIMAL_SYMBOLS - 1, sort_down_users[i].user.first_name.c_str());
+            mvwaddstr(m_Window, LINES/4 + 3 + i%MAXIMAL_USERS, COLS/2 - MAXIMAL_SYMBOLS - 1, sort_down_users[i].user.name.c_str());
             waddstr(m_Window, "  ");
             wattroff(m_Window, COLOR_PAIR(iomanager::SORT));
             mvwaddstr(m_Window, LINES/4 + 3 + i%MAXIMAL_USERS, COLS/2 + 1, (getMark(sort_down_users[i].student.first) + "   ").c_str());

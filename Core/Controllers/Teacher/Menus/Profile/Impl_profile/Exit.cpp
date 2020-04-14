@@ -15,7 +15,7 @@ bool Profile::active_exit(void) {
             locale = Locale::Login;
             break;
         case '\n':
-            isExit = true;
+            is_exit = true;
             break;
         default:
             break;

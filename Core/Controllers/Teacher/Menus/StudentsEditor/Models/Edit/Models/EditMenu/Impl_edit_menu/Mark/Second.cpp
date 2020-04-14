@@ -74,7 +74,7 @@ bool EditMenu::active_second(void) {
             if (deep) {
                 deep = false;
                 m_Marks.second = mark_second;
-                m_db_student.setSecond(m_User->login, m_Marks.second, m_Marks.amount_of_second);
+                m_db_student.set_second(m_User->login, m_Marks.second, m_Marks.amount_of_second);
                 reset_second();
                 draw();
             } else {

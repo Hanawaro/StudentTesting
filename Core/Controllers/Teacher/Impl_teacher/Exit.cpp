@@ -15,7 +15,7 @@ bool TeacherMenu::active_exit(void) {
             locale = Locale::Profile;
             break;
         case '\n':
-            isExit = true;
+            is_exit = true;
             draw();
             break;
         default:

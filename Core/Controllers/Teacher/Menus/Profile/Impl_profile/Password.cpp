@@ -26,7 +26,7 @@ bool Profile::active_password(void) {
             if (deepPassword) {
                 if (check_password()) {
                     // db password
-                    m_db_user.setPassword(m_User->login, real_new_pass);
+                    m_db_user.set_password(m_User->login, real_new_pass);
                     set_save_password();
                     
                     deep = false;

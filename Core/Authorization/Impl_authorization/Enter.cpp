@@ -9,7 +9,7 @@ bool Authorization::active_enter(void) {
     switch (tmp) {
         case '\n':
             if (!real_login.size()) {
-                isAuth = false;
+                is_auth = false;
 
                 for (size_t i = 0; i < show_password.size(); i++)
                     show_password[i] = ' ';
@@ -25,7 +25,7 @@ bool Authorization::active_enter(void) {
                 
                 locale = Locale::Login;
             } else if (!show_password.size()) {
-                isAuth = false;
+                is_auth = false;
 
                 draw();
                 
@@ -37,9 +37,9 @@ bool Authorization::active_enter(void) {
             } else {
                 // search in DB
                 if (search_user()) {
-                    isAuth = true;
+                    is_auth = true;
                 } else {
-                    isAuth = false;
+                    is_auth = false;
 
                     for (size_t i = 0; i < show_password.size(); i++)
                         show_password[i] = ' ';

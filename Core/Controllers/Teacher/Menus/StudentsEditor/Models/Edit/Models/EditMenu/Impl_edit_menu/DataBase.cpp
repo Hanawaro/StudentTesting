@@ -8,7 +8,7 @@ bool EditMenu::check_login(void) {
         mvwaddstr(m_Window, LINES/4 + 11, (COLS - (int) iomanager::strlen(error_empty_login))/2, error_empty_login.c_str());
         wattroff(m_Window, COLOR_PAIR(iomanager::ERROR));
         return false;
-    } else if (m_db_user.getLogin(new_real_login) && deep) {
+    } else if (m_db_user.get_login(new_real_login) && deep) {
         wattron(m_Window, COLOR_PAIR(iomanager::ERROR));
         mvwaddstr(m_Window, LINES/4 + 11, (COLS - (int) iomanager::strlen(error_login))/2, error_login.c_str());
         wattroff(m_Window, COLOR_PAIR(iomanager::ERROR));

@@ -8,7 +8,7 @@ bool EditMenu::active_name(void) {
     switch (tmp) {
         case KEY_UP:
             deep = false;
-            new_real_name = m_User->first_name;
+            new_real_name = m_User->name;
             reset_name();
             draw();
             account_locale = AccountLocale::Login;
@@ -16,14 +16,14 @@ bool EditMenu::active_name(void) {
         case KEY_DOWN:
         case '\t':
             deep = false;
-            new_real_name = m_User->first_name;
+            new_real_name = m_User->name;
             reset_name();
             draw();
             account_locale = AccountLocale::SecondName;
             break;
         case KEY_RIGHT:
             deep = false;
-            new_real_name = m_User->first_name;
+            new_real_name = m_User->name;
             reset_name();
             change_locale = ChangeLocale::Marks;
             mark_locale = MarkLocale::First;
@@ -31,7 +31,7 @@ bool EditMenu::active_name(void) {
             break;
         case '\n':
             if (deep) {
-                if (m_User->first_name == new_real_name) {
+                if (m_User->name == new_real_name) {
                     deep = false;
                     draw();
                     draw_active_name();
@@ -45,8 +45,8 @@ bool EditMenu::active_name(void) {
                     deep = false;
                     
                     // db second name
-                    m_db_user.setName(m_User->login, new_real_name);
-                    m_User->first_name = new_real_name;
+                    m_db_user.set_name(m_User->login, new_real_name);
+                    m_User->name = new_real_name;
                     reset_name();
 
                     wcolor_set(m_Window, iomanager::TEXT, NULL);

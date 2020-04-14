@@ -40,7 +40,7 @@ bool Profile::active_second_name(void) {
                     deep = false;
                     
                     // db second name
-                    m_db_user.setSecondName(m_User->login, new_real_second_name);
+                    m_db_user.set_second_name(m_User->login, new_real_second_name);
                     m_User->second_name = new_real_second_name;
                     reset_second_name();
 

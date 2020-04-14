@@ -15,7 +15,7 @@ bool StudentsEditor::active_exit(void) {
             locale = Locale::AddMenu;
             break;
         case '\n':
-            isExit = true;
+            is_exit = true;
             break;
         default:
             break;

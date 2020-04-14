@@ -74,7 +74,7 @@ bool EditMenu::active_first(void) {
             if (deep) {
                 deep = false;
                 m_Marks.first = mark_first;
-                m_db_student.setFirst(m_User->login, m_Marks.first, m_Marks.amount_of_first);
+                m_db_student.set_first(m_User->login, m_Marks.first, m_Marks.amount_of_first);
                 reset_first();
                 draw();
             } else {

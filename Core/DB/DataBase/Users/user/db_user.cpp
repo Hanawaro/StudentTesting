@@ -1,16 +1,16 @@
 #include "db_user.hpp"
 
-bool db_user::getLogin(const std::string& key) const {
+bool db_user::get_login(const std::string& key) const {
     char tmp[255];
     int limit = 0;
-    std::ifstream db(m_Path, std::ios::binary);
+    std::ifstream db(m_path, std::ios::binary);
     bool notFound = true;
     if (db) {
         do {
             db.seekg(limit, std::ios::beg);
             db.read(tmp, 255);
-			std::string del = std::string(Security::Cipher::getUnChipher(tmp).c_str());
-            if (std::string(Security::Cipher::getUnChipher(tmp).c_str()) == key) {
+			std::string del = std::string(Security::Cipher::get_un_chipher(tmp).c_str());
+            if (std::string(Security::Cipher::get_un_chipher(tmp).c_str()) == key) {
                 notFound = false;
             }
             if (db.eof())
@@ -22,17 +22,17 @@ bool db_user::getLogin(const std::string& key) const {
     return !notFound;
 }
 
-bool db_user::getStatus(const std::string& key) const {
+bool db_user::get_status(const std::string& key) const {
     uint32_t result;
     char tmp[255] = { '\0' };
     int limit = 0;
-    std::ifstream db(m_Path, std::ios::binary);
+    std::ifstream db(m_path, std::ios::binary);
     bool notFound = true;
     if (db) {
         do {
             db.seekg(limit, std::ios::beg);
             db.read(tmp, 255);
-            if (std::string(Security::Cipher::getUnChipher(tmp).c_str()) == key) {
+            if (std::string(Security::Cipher::get_un_chipher(tmp).c_str()) == key) {
                 db.seekg(limit + 255);
                 db.read((char *)&result, sizeof result);
                 db.close();
@@ -50,18 +50,18 @@ bool db_user::getStatus(const std::string& key) const {
     return false;
 }
 
-std::string db_user::getName(const std::string& key) const {
+std::string db_user::get_name(const std::string& key) const {
     std::string result = "";
     char tmp[255] = { '\0' };
     int limit = 0;
-    std::ifstream db(m_Path, std::ios::binary);
+    std::ifstream db(m_path, std::ios::binary);
     bool notFound = true;
     if (db) {
         do {
             db.seekg(limit, std::ios::beg);
             db.read(tmp, 255);
-			//std::string deletee = std::string(Security::Cipher::getUnChipher(tmp).c_str());
-            if (std::string(Security::Cipher::getUnChipher(tmp).c_str())== key) {
+			//std::string deletee = std::string(Security::Cipher::get_un_chipher(tmp).c_str());
+            if (std::string(Security::Cipher::get_un_chipher(tmp).c_str())== key) {
                 db.seekg(limit + 2*255 + 4);
                 char tmp[255];
                 db.read(tmp, 255);
@@ -79,17 +79,17 @@ std::string db_user::getName(const std::string& key) const {
     return result;
 }
 
-std::string db_user::getSecondName(const std::string& key) const {
+std::string db_user::get_second_name(const std::string& key) const {
     std::string result = "";
     char tmp[255] = { '\0' };
     int limit = 0;
-    std::ifstream db(m_Path, std::ios::binary);
+    std::ifstream db(m_path, std::ios::binary);
     bool notFound = true;
     if (db) {
         do {
             db.seekg(limit, std::ios::beg);
             db.read(tmp, 255);
-            if (std::string(Security::Cipher::getUnChipher(tmp).c_str()) == key) {
+            if (std::string(Security::Cipher::get_un_chipher(tmp).c_str()) == key) {
                 db.seekg(limit + 3*255 + 4);
                 char tmp[255];
                 db.read(tmp, 255);
@@ -107,22 +107,22 @@ std::string db_user::getSecondName(const std::string& key) const {
     return result;
 }
 
-std::string db_user::getPasswordHash(const std::string& key) const {
+std::string db_user::get_password_hash(const std::string& key) const {
     std::string result = "";
     char tmp[255] = { '\0' };
     int limit = 0;
-    std::ifstream db(m_Path, std::ios::binary);
+    std::ifstream db(m_path, std::ios::binary);
     bool notFound = true;
     if (db) {
         do {
             db.seekg(limit, std::ios::beg);
             db.read(tmp, 255);
-            if (std::string(Security::Cipher::getUnChipher(tmp).c_str())== key) {
+            if (std::string(Security::Cipher::get_un_chipher(tmp).c_str())== key) {
                 db.seekg(limit + 255 + 4, std::ios::beg);
                 char hash[255];
                 db.read(hash, 255);
                 db.close();
-                return Security::Cipher::getUnChipher(hash).c_str();
+                return Security::Cipher::get_un_chipher(hash).c_str();
             }
             if (db.eof())
                 break;
@@ -133,26 +133,26 @@ std::string db_user::getPasswordHash(const std::string& key) const {
     return result;
 }
 
-bool db_user::comparePasswordHash(const std::string& key, const std::string& hash) const {
-    if (hash == getPasswordHash(key))
+bool db_user::compare_password_hash(const std::string& key, const std::string& hash) const {
+    if (hash == get_password_hash(key))
         return true;
     return false;
 }
 
-void db_user::setLogin(const std::string& key, const std::string& login) const {
+void db_user::set_login(const std::string& key, const std::string& login) const {
     char tmp[255] = { '\0' };
     int limit = 0;
-    std::ifstream db(m_Path, std::ios::binary);
+    std::ifstream db(m_path, std::ios::binary);
     bool notFound = true;
     if (db) {
         do {
             db.seekg(limit, std::ios::beg);
             db.read(tmp, 255);
-            if (std::string(Security::Cipher::getUnChipher(tmp).c_str()) == key) {
+            if (std::string(Security::Cipher::get_un_chipher(tmp).c_str()) == key) {
 				db.close();
-				std::ofstream write_login(m_Path, std::ios::binary | std::ios::in);
+				std::ofstream write_login(m_path, std::ios::binary | std::ios::in);
 				write_login.seekp(limit, std::ios::beg);
-				write_login.write(Security::Cipher::getChipher(login.c_str()).c_str(), 255);
+				write_login.write(Security::Cipher::get_chipher(login.c_str()).c_str(), 255);
 				write_login.close();
 				return;
             }
@@ -164,21 +164,21 @@ void db_user::setLogin(const std::string& key, const std::string& login) const {
     }
 }
 
-void db_user::setName(const std::string& key, const std::string& name) const {
+void db_user::set_name(const std::string& key, const std::string& name) const {
     char tmp[255] = { '\0' };
     int limit = 0;
-    std::ifstream db(m_Path, std::ios::binary);
+    std::ifstream db(m_path, std::ios::binary);
     bool notFound = true;
     if (db) {
         do {
             db.seekg(limit, std::ios::beg);
             db.read(tmp, 255);
-            if (std::string(Security::Cipher::getUnChipher(tmp).c_str()) == key) {
+            if (std::string(Security::Cipher::get_un_chipher(tmp).c_str()) == key) {
 				db.close();
-				std::ofstream write_login(m_Path, std::ios::binary | std::ios::in);
+				std::ofstream write_login(m_path, std::ios::binary | std::ios::in);
 				write_login.seekp(limit, std::ios::beg);
 				write_login.seekp(limit + 2*255 + 4, std::ios::beg);
-				write_login.write(Security::Cipher::getChipher(name.c_str()).c_str(), 255);
+				write_login.write(Security::Cipher::get_chipher(name.c_str()).c_str(), 255);
 				write_login.close();
 				return;
             }
@@ -190,21 +190,21 @@ void db_user::setName(const std::string& key, const std::string& name) const {
     }
 }
 
-void db_user::setSecondName(const std::string& key, const std::string& secondName) const {
+void db_user::set_second_name(const std::string& key, const std::string& secondName) const {
     char tmp[255] = { '\0' };
     int limit = 0;
-    std::ifstream db(m_Path, std::ios::binary);
+    std::ifstream db(m_path, std::ios::binary);
     bool notFound = true;
     if (db) {
         do {
             db.seekg(limit, std::ios::beg);
             db.read(tmp, 255);
-            if (std::string(Security::Cipher::getUnChipher(tmp).c_str()) == key) {
+            if (std::string(Security::Cipher::get_un_chipher(tmp).c_str()) == key) {
 				db.close();
-				std::ofstream write_login(m_Path, std::ios::binary | std::ios::in);
+				std::ofstream write_login(m_path, std::ios::binary | std::ios::in);
 				write_login.seekp(limit, std::ios::beg);
 				write_login.seekp(limit + 3*255 + 4, std::ios::beg);
-				write_login.write(Security::Cipher::getChipher(secondName.c_str()).c_str(), 255);
+				write_login.write(Security::Cipher::get_chipher(secondName.c_str()).c_str(), 255);
 				write_login.close();
 				return;
             }
@@ -216,21 +216,21 @@ void db_user::setSecondName(const std::string& key, const std::string& secondNam
     }
 }
 
-void db_user::setPassword(const std::string& key, const std::string& password) const {
+void db_user::set_password(const std::string& key, const std::string& password) const {
     char tmp[255] = { '\0' };
     int limit = 0;
-    std::ifstream db(m_Path, std::ios::binary);
+    std::ifstream db(m_path, std::ios::binary);
     bool notFound = true;
     if (db) {
         do {
             db.seekg(limit, std::ios::beg);
             db.read(tmp, 255);
-            if (std::string(Security::Cipher::getUnChipher(tmp).c_str()) == key) {
+            if (std::string(Security::Cipher::get_un_chipher(tmp).c_str()) == key) {
 				db.close();
-				std::ofstream write_login(m_Path, std::ios::binary | std::ios::in);
+				std::ofstream write_login(m_path, std::ios::binary | std::ios::in);
 				write_login.seekp(limit, std::ios::beg);
 				write_login.seekp(limit + 255 + 4, std::ios::beg);
-				write_login.write(Security::Cipher::getChipher(Security::Hash::getHashWithSult(password).c_str()).c_str(), 255);
+				write_login.write(Security::Cipher::get_chipher(Security::Hash::get_hash_with_sult(password).c_str()).c_str(), 255);
 				write_login.close();
 				return;
             }
@@ -242,28 +242,28 @@ void db_user::setPassword(const std::string& key, const std::string& password) c
     }
 }
 
-void db_user::addUser(const std::string& login, uint32_t status, const std::string& name, const std::string& secondName, const std::string& password) const {
-    std::ofstream db(m_Path, std::ios::binary | std::ios::in);
+void db_user::add_user(const std::string& login, uint32_t status, const std::string& name, const std::string& secondName, const std::string& password) const {
+    std::ofstream db(m_path, std::ios::binary | std::ios::in);
     db.seekp(0, std::ios::end);
     
     uint32_t index = status;
     
-    db.write(Security::Cipher::getChipher(login).c_str(), 255);
+    db.write(Security::Cipher::get_chipher(login).c_str(), 255);
     db.write((char *)&index, 4);
-    db.write(Security::Cipher::getChipher(Security::Hash::getHashWithSult(password)).c_str(), 255);
-    db.write(Security::Cipher::getChipher(name).c_str(), 255);
-    db.write(Security::Cipher::getChipher(secondName).c_str(), 255);
+    db.write(Security::Cipher::get_chipher(Security::Hash::get_hash_with_sult(password)).c_str(), 255);
+    db.write(Security::Cipher::get_chipher(name).c_str(), 255);
+    db.write(Security::Cipher::get_chipher(secondName).c_str(), 255);
     
 	db.close();
 
     if (status != 404)
-        m_db_student.addStudent(login, Mark::Empty, 3, Mark::Empty, 3, Mark::Empty, 3, Mark::Empty, 1);
+        m_db_student.add_student(login, Mark::Empty, 3, Mark::Empty, 3, Mark::Empty, 3, Mark::Empty, 1);
 
 }
 
-void db_user::removeUser(const std::string& key) {
+void db_user::remove_user(const std::string& key) {
     // replace
-    std::ifstream db_tmp(m_Path, std::ios::binary);
+    std::ifstream db_tmp(m_path, std::ios::binary);
     
     char input_login[255];
     char input_name[255];
@@ -278,7 +278,7 @@ void db_user::removeUser(const std::string& key) {
         do {
             db_tmp.seekg(limit, std::ios::beg);
             db_tmp.read(input_login, 255);
-            if (std::string(Security::Cipher::getUnChipher(input_login).c_str()) == key) {
+            if (std::string(Security::Cipher::get_un_chipher(input_login).c_str()) == key) {
                 notFound = false;
             }
             if (db_tmp.eof())
@@ -293,10 +293,10 @@ void db_user::removeUser(const std::string& key) {
     
     if (!notFound) {
         // sudents db
-        m_db_student.removeStudent(key);
+        m_db_student.remove_student(key);
         // rewrite
-        std::ifstream db(m_Path, std::ios::binary);
-        std::ofstream tmp(m_Path + ".tmp", std::ios::binary);
+        std::ifstream db(m_path, std::ios::binary);
+        std::ofstream tmp(m_path + ".tmp", std::ios::binary);
         
         limit = 0;
         db.seekg(limit, std::ios::beg);
@@ -306,7 +306,7 @@ void db_user::removeUser(const std::string& key) {
             db.read(input_password, 255);
             db.read(input_name, 255);
             db.read(input_second_name, 255);
-            if (std::string(Security::Cipher::getUnChipher(input_login).c_str()) == key) {
+            if (std::string(Security::Cipher::get_un_chipher(input_login).c_str()) == key) {
                 limit += 255*4 + 4;
                 continue;
             }
@@ -321,13 +321,13 @@ void db_user::removeUser(const std::string& key) {
         db.close();
         tmp.close();
         
-        remove(m_Path.c_str());
-        rename((m_Path + ".tmp").c_str(), m_Path.c_str());
+        remove(m_path.c_str());
+        rename((m_path + ".tmp").c_str(), m_path.c_str());
     }
 }
 
 User db_user::load_user(int index) const {
-    std::ifstream db(m_Path, std::ios::binary);
+    std::ifstream db(m_path, std::ios::binary);
     
     db.seekg(index * (255*4 + 4), std::ios::beg);
     
@@ -346,13 +346,13 @@ User db_user::load_user(int index) const {
     
     db.close();
     
-    user.login = Security::Cipher::getUnChipher(login).c_str();
+    user.login = Security::Cipher::get_un_chipher(login).c_str();
     if (status == 404)
         user.status = Status::Teacher;
     else
         user.status = Status::Student;
-    user.first_name = Security::Cipher::getUnChipher(name).c_str();
-    user.second_name = Security::Cipher::getUnChipher(second_name).c_str();
+    user.name = Security::Cipher::get_un_chipher(name).c_str();
+    user.second_name = Security::Cipher::get_un_chipher(second_name).c_str();
     
     return user;
 }
@@ -366,13 +366,13 @@ User db_user::load_user(const std::string& key) const {
     
     char tmp[255];
     int limit = 0;
-    std::ifstream db(m_Path, std::ios::binary);
+    std::ifstream db(m_path, std::ios::binary);
     bool notFound = true;
     if (db) {
         do {
             db.seekg(limit, std::ios::beg);
             db.read(tmp, 255);
-            if (std::string(Security::Cipher::getUnChipher(tmp).c_str()) == key) {
+            if (std::string(Security::Cipher::get_un_chipher(tmp).c_str()) == key) {
                 login = tmp;
                 db.read((char *)&status, sizeof(uint32_t));
                 db.seekg(255, std::ios::cur);
@@ -390,19 +390,19 @@ User db_user::load_user(const std::string& key) const {
     
     User user;
     
-    user.login = Security::Cipher::getUnChipher(login).c_str();
+    user.login = Security::Cipher::get_un_chipher(login).c_str();
     if (status == 404)
         user.status = Status::Teacher;
     else
         user.status = Status::Student;
-    user.first_name = Security::Cipher::getUnChipher(name).c_str();
-    user.second_name = Security::Cipher::getUnChipher(second_name).c_str();
+    user.name = Security::Cipher::get_un_chipher(name).c_str();
+    user.second_name = Security::Cipher::get_un_chipher(second_name).c_str();
     
     return user;
 }
 
 void db_user::load_users(std::vector<User>& users) {
-    std::ifstream db(m_Path, std::ios::binary);
+    std::ifstream db(m_path, std::ios::binary);
     db.seekg(0, std::ios::end);
     long long size = (int) db.tellg() / (255*4 + 4);
     db.close();
@@ -418,7 +418,7 @@ void db_user::load_users(std::vector<User>& users) {
 }
 
 void db_user::load_users(std::vector<info_student>& users) {
-    std::ifstream db(m_Path, std::ios::binary);
+    std::ifstream db(m_path, std::ios::binary);
     db.seekg(0, std::ios::end);
     long long size = (int) db.tellg() / (255*4 + 4);
     db.close();

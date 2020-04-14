@@ -65,7 +65,7 @@ private:
     
     Test m_Test;
     
-    bool isExit = false;
+    bool is_exit = false;
     bool isMessage = false;
     
     int index = 0;

@@ -3,7 +3,7 @@
 void Add::open(void) {
     init();
     
-    while ((locale != Locale::Exit) || (!isExit)) {
+    while ((locale != Locale::Exit) || (!is_exit)) {
         switch (locale) {
             case Locale::Login:
                 if ( active_login() )
@@ -60,7 +60,7 @@ void Add::reset(void) {
     m_Window = nullptr;
     locale = Locale::Login;
     
-    isExit = false;
+    is_exit = false;
 
     text_hello        = "Регистрация нового ученика";
     text_login        = "Логин:  ";

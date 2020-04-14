@@ -68,7 +68,7 @@ private:
     db_test_second  m_db_test_second;
     db_test_third   m_db_test_third;
     
-    bool isExit = false;
+    bool is_exit = false;
     bool isMessage = false;
     
     int index = 0;

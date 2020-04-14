@@ -54,7 +54,7 @@ private:
     Sort sort = Sort::up;
     
     bool empty = false;
-    bool isExit = false;
+    bool is_exit = false;
     
     int page = 1;
     int pages = 0;

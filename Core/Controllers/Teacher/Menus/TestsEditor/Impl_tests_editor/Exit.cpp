@@ -34,7 +34,7 @@ bool TestsEditor::active_exit(void) {
             }
             break;
         case '\n':
-            isExit = true;
+            is_exit = true;
             draw();
             break;
         default:

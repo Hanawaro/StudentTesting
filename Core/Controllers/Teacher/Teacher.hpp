@@ -52,8 +52,8 @@ private:
     class StudentsEditor menu_students;
     class TestsEditor menu_tests_editor;
     
-    bool isAuth = true;
-    bool isExit = false;
+    bool is_auth = true;
+    bool is_exit = false;
     
     // text
     const std::string text_hello            = "Добро пожаловать!";

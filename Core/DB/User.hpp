@@ -1,5 +1,5 @@
-#ifndef user_h
-#define user_h
+#ifndef User_h
+#define User_h
 
 #include <iostream>
 #include <string>
@@ -22,7 +22,7 @@ class User {
 public:
     Status status;
     std::string login;
-    std::string first_name;
+    std::string name;
     std::string second_name;
 };
 

@@ -5,7 +5,7 @@ void EditMenu::open(User *user) {
     
     init();
     
-    while ((account_locale != AccountLocale::Exit && mark_locale != MarkLocale::Exit) || (!isExit)) {
+    while ((account_locale != AccountLocale::Exit && mark_locale != MarkLocale::Exit) || (!is_exit)) {
         switch (change_locale) {
             case ChangeLocale::Account:
                 switch (account_locale) {
@@ -98,7 +98,7 @@ void EditMenu::reset(void) {
     change_locale = ChangeLocale::Account;
     
     deep = false;
-    isExit = false;
+    is_exit = false;
     
     text_login          = " Логин:  ";
     text_name           = " Имя:  ";
@@ -106,7 +106,7 @@ void EditMenu::reset(void) {
     text_password       = " Пароль:  ";
     
     new_real_login = m_User->login;
-    new_real_name = m_User->first_name;
+    new_real_name = m_User->name;
     new_real_second_name = m_User->second_name;
     
     reset_login();

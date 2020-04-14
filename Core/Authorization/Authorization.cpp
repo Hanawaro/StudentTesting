@@ -8,7 +8,7 @@ User Authorization::authorization(void) {
     
     init();
     
-    while ((locale != Locale::Enter && locale != Locale::Exit) || (!isAuth && !isExit)) {
+    while ((locale != Locale::Enter && locale != Locale::Exit) || (!is_auth && !is_exit)) {
         switch (locale) {
             case Locale::Login:
                 if ( active_login() )
@@ -34,11 +34,11 @@ User Authorization::authorization(void) {
     }
     
     // Exit
-    if (isAuth) {
+    if (is_auth) {
         user.login = real_login.c_str();
-        user.first_name = Security::Cipher::getUnChipher(m_db_user.getName(real_login)).c_str();
-        user.second_name = Security::Cipher::getUnChipher(m_db_user.getSecondName(real_login)).c_str();
-        if (m_db_user.getStatus(real_login)) {
+        user.name = Security::Cipher::get_un_chipher(m_db_user.get_name(real_login)).c_str();
+        user.second_name = Security::Cipher::get_un_chipher(m_db_user.get_second_name(real_login)).c_str();
+        if (m_db_user.get_status(real_login)) {
             user.status = Status::Teacher;
         } else {
             user.status = Status::Student;
@@ -46,13 +46,13 @@ User Authorization::authorization(void) {
         // Reset save file
         if (isSave) {
             std::ofstream ofsave("Source/authorization");
-            ofsave.write(Security::Cipher::getChipher(real_login).c_str(), 255);
-            ofsave.write(Security::Cipher::getChipher(m_db_user.getPasswordHash(real_login)).c_str(), 255);
+            ofsave.write(Security::Cipher::get_chipher(real_login).c_str(), 255);
+            ofsave.write(Security::Cipher::get_chipher(m_db_user.get_password_hash(real_login)).c_str(), 255);
             ofsave.close();
         }
-    } else if (isExit) {
+    } else if (is_exit) {
         user.login          = "";
-        user.first_name     = "";
+        user.name     = "";
         user.second_name    = "";
         user.status = Status::None;
     }
@@ -87,9 +87,9 @@ void Authorization::reset(void) {
     m_Window = nullptr;
     locale = Locale::Login;
     
-    isAuth = false;
+    is_auth = false;
     isSave = false;
-    isExit = false;
+    is_exit = false;
     
     text_login    = "Логин:  ";
     text_password = "Пароль:  ";

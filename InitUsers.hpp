@@ -11,13 +11,13 @@ namespace InitUsers {
         
         db_user m_db_user;
         // administrator
-        m_db_user.addUser("admin", 404, "Hanawaro", "Kato", "123");
+        m_db_user.add_user("admin", 404, "Hanawaro", "Kato", "123");
         // users
-        m_db_user.addUser("19pri_Savkin", 123, "Stepan", "Savkin", "123");
-        m_db_user.addUser("19pri_Shelepina", 123, "Olga", "Shelepina", "123");
-        m_db_user.addUser("19pri_Telesheva", 123, "Elena", "Telesheva", "123");
-        m_db_user.addUser("19pri_Kuzmina", 123, "Julia", "Kuzmina", "123");
-        m_db_user.addUser("19pri_Marchencov", 123, "Dmitriy", "Marchencov", "123");
+        m_db_user.add_user("19pri_Savkin", 123, "Stepan", "Savkin", "123");
+        m_db_user.add_user("19pri_Shelepina", 123, "Olga", "Shelepina", "123");
+        m_db_user.add_user("19pri_Telesheva", 123, "Elena", "Telesheva", "123");
+        m_db_user.add_user("19pri_Kuzmina", 123, "Julia", "Kuzmina", "123");
+        m_db_user.add_user("19pri_Marchencov", 123, "Dmitriy", "Marchencov", "123");
         
         db_test_first  m_db_test_first;
         db_test_second m_db_test_second;

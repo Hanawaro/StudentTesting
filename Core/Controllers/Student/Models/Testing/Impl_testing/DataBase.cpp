@@ -82,22 +82,22 @@ void Testing::minus_life(void) {
         case 1:
             if (m_Student.amount_of_first > 0)
                 m_Student.amount_of_first--;
-            m_db_student.setFirst(m_User.login, m_Student.first, m_Student.amount_of_first);
+            m_db_student.set_first(m_User.login, m_Student.first, m_Student.amount_of_first);
             break;
         case 2:
             if (m_Student.amount_of_second > 0)
                 m_Student.amount_of_second--;
-            m_db_student.setSecond(m_User.login, m_Student.second, m_Student.amount_of_second);
+            m_db_student.set_second(m_User.login, m_Student.second, m_Student.amount_of_second);
             break;
         case 3:
             if (m_Student.amount_of_third > 0)
                 m_Student.amount_of_third--;
-            m_db_student.setThird(m_User.login, m_Student.third, m_Student.amount_of_third);
+            m_db_student.set_third(m_User.login, m_Student.third, m_Student.amount_of_third);
             break;
         case 4:
             if (m_Student.amount_of_total > 0)
                 m_Student.amount_of_total--;
-            m_db_student.setTotal(m_User.login, m_Student.total, m_Student.amount_of_total);
+            m_db_student.set_total(m_User.login, m_Student.total, m_Student.amount_of_total);
             break;
     }
 }
@@ -115,16 +115,16 @@ void Testing::set_new_result(void) {
     
     switch (g_show_locale) {
         case 1:
-            m_db_student.setFirst(m_User.login, mark, m_Student.amount_of_first);
+            m_db_student.set_first(m_User.login, mark, m_Student.amount_of_first);
             break;
         case 2:
-            m_db_student.setSecond(m_User.login, mark, m_Student.amount_of_second);
+            m_db_student.set_second(m_User.login, mark, m_Student.amount_of_second);
             break;
         case 3:
-            m_db_student.setThird(m_User.login, mark, m_Student.amount_of_third);
+            m_db_student.set_third(m_User.login, mark, m_Student.amount_of_third);
             break;
         case 4:
-            m_db_student.setTotal(m_User.login, mark, m_Student.amount_of_total);
+            m_db_student.set_total(m_User.login, mark, m_Student.amount_of_total);
             break;
     }
 }

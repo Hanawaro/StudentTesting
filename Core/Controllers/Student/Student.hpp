@@ -79,8 +79,8 @@ private:
     
     db_student m_db_student;
     
-    bool isAuth = true;
-    bool isExit = false;
+    bool is_auth = true;
+    bool is_exit = false;
     
     const std::string text_hello        = "Добро пожаловать!";
     const std::string text_training     = " Тренинг ";

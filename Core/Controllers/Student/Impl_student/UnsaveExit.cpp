@@ -49,8 +49,8 @@ bool StudentMenu::active_unsave_exit(void) {
             draw();
             break;
         case '\n':
-            isExit = true;
-            isAuth = false;
+            is_exit = true;
+            is_auth = false;
             draw();
             break;
         default:

@@ -15,7 +15,7 @@ bool Show::active_exit(void) {
             locale = Locale::StudentsMenu;
             break;
         case '\n':
-            isExit = true;
+            is_exit = true;
             break;
         default:
             break;

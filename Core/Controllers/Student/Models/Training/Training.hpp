@@ -54,7 +54,7 @@ private:
     WINDOW* m_Window = nullptr;
     Locale locale = Locale::First;
     
-    bool isExit = false;
+    bool is_exit = false;
     bool isError = false;
     bool empty = false;
     bool once = false;

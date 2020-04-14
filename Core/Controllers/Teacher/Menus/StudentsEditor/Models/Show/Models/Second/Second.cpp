@@ -3,7 +3,7 @@
 void Second::open(std::vector<info_student> users) {
     all_users = users;
     init();
-    while ((locale != Locale::Exit) || (!isExit)) {
+    while ((locale != Locale::Exit) || (!is_exit)) {
         switch (locale) {
             case Locale::Change:
                 if ( active_change() && !empty)
@@ -51,7 +51,7 @@ void Second::reset(void) {
     sort = Sort::up;
     
     empty = false;
-    isExit = false;
+    is_exit = false;
     
     page = 1;
     pages = 0;

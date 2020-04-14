@@ -8,7 +8,7 @@ bool Profile::check_login(void) {
         mvwaddstr(m_Window, LINES/4 + 11, (COLS - (int) iomanager::strlen(error_empty_login))/2, error_empty_login.c_str());
         wattroff(m_Window, COLOR_PAIR(iomanager::ERROR));
         return false;
-    } else if (m_db_user.getLogin(new_real_login) && deep) {
+    } else if (m_db_user.get_login(new_real_login) && deep) {
         wattron(m_Window, COLOR_PAIR(iomanager::ERROR));
         mvwaddstr(m_Window, LINES/4 + 11, (COLS - (int) iomanager::strlen(error_login))/2, error_login.c_str());
         wattroff(m_Window, COLOR_PAIR(iomanager::ERROR));
@@ -25,7 +25,7 @@ bool Profile::check_password(void) {
         mvwaddstr(m_Window, LINES/4 + 11, (COLS - (int) iomanager::strlen(error_empty_old_password))/2, error_empty_old_password.c_str());
         wattroff(m_Window, COLOR_PAIR(iomanager::ERROR));
         return false;
-    } else if (!m_db_user.comparePasswordHash(m_User->login, Security::Hash::getHashWithSult(real_old_pass)) && deep) {
+    } else if (!m_db_user.compare_password_hash(m_User->login, Security::Hash::get_hash_with_sult(real_old_pass)) && deep) {
         wattron(m_Window, COLOR_PAIR(iomanager::ERROR));
         mvwaddstr(m_Window, LINES/4 + 11, (COLS - (int) iomanager::strlen(error_passwords))/2, error_passwords.c_str());
         wattroff(m_Window, COLOR_PAIR(iomanager::ERROR));

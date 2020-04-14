@@ -20,7 +20,7 @@ bool Edit::active_edit(void) {
                 }
                 real_login = users[user_index].login;
                 reset_login();
-                real_name = users[user_index].first_name;
+                real_name = users[user_index].name;
                 reset_change();
                 draw();
             }
@@ -34,7 +34,7 @@ bool Edit::active_edit(void) {
                 }
                 real_login = users[user_index].login;
                 reset_login();
-                real_name = users[user_index].first_name;
+                real_name = users[user_index].name;
                 reset_change();
                 draw();
             }
@@ -52,7 +52,7 @@ bool Edit::active_edit(void) {
             editMenu.open(&users[user_index]);
             real_login = users[user_index].login;
             reset_login();
-            real_name = users[user_index].first_name;
+            real_name = users[user_index].name;
             reset_change();
             draw();
             break;

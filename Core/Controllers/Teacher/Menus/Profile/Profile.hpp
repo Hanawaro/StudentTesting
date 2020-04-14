@@ -68,7 +68,7 @@ private:
     
     bool deep = false;
     bool deepPassword = false;
-    bool isExit = false;
+    bool is_exit = false;
     
     // text
     std::string text_hello       = "Ваш аккаунт";

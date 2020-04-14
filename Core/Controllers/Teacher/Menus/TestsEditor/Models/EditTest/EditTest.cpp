@@ -5,7 +5,7 @@ void EditTest::open(Test& test) {
     
     init();
     
-    while ((locale != Locale::exit) || (!isExit)) {
+    while ((locale != Locale::exit) || (!is_exit)) {
         switch (locale) {
             case Locale::text_bar:
                 if ( active_text_bar() )
@@ -63,7 +63,7 @@ void EditTest::reset(void) {
     locale = Locale::text_bar;
     global_locale = GlobalLocale::question;
     
-    isExit = false;
+    is_exit = false;
     isMessage = false;
     
     switch (m_Test.right) {

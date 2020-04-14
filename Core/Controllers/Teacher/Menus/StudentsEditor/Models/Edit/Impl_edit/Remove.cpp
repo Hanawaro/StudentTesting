@@ -20,7 +20,7 @@ bool Edit::active_remove(void) {
                 }
                 real_login = users[user_index].login;
                 reset_login();
-                real_name = users[user_index].first_name;
+                real_name = users[user_index].name;
                 reset_change();
                 draw();
             }
@@ -34,7 +34,7 @@ bool Edit::active_remove(void) {
                 }
                 real_login = users[user_index].login;
                 reset_login();
-                real_name = users[user_index].first_name;
+                real_name = users[user_index].name;
                 reset_change();
                 draw();
             }
@@ -49,7 +49,7 @@ bool Edit::active_remove(void) {
             locale = Locale::Exit;
             break;
         case '\n':
-            m_db_user.removeUser(users[user_index].login);
+            m_db_user.remove_user(users[user_index].login);
             
             users.erase(users.begin() + user_index);
             
@@ -59,7 +59,7 @@ bool Edit::active_remove(void) {
             if (users.size()) {
                 real_login = users[user_index].login;
                 reset_login();
-                real_name = users[user_index].first_name;
+                real_name = users[user_index].name;
                 reset_change();
                 draw();
             } else {

@@ -74,7 +74,7 @@ bool EditMenu::active_third(void) {
             if (deep) {
                 deep = false;
                 m_Marks.third = mark_third;
-                m_db_student.setThird(m_User->login, m_Marks.third, m_Marks.amount_of_third);
+                m_db_student.set_third(m_User->login, m_Marks.third, m_Marks.amount_of_third);
                 reset_third();
                 draw();
             } else {

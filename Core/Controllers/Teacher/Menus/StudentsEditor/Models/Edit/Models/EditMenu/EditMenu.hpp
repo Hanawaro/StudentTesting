@@ -108,7 +108,7 @@ private:
     Mark mark_total  = Mark::Empty;
     
     bool deep = false;
-    bool isExit = false;
+    bool is_exit = false;
     
     // text
     const std::string text_hello            = "Редактирование";

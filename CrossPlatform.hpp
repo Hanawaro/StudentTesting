@@ -1,6 +1,8 @@
 #ifndef CrossPlatform_h
 #define CrossPlatform_h
 
+#include <locale.h>
+
 #ifdef MAC_OS
 void cp_setlocale(void) {
     setlocale(LC_CTYPE, "");

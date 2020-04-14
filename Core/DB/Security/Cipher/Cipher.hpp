@@ -5,9 +5,8 @@
 #include <string>
 
 namespace Security { namespace Cipher {
-    const std::string key = "GodSay1488";
-    std::string getChipher(std::string text);
-    std::string getUnChipher(std::string text);
+    std::string get_chipher(const std::string text);
+    std::string get_un_chipher(const std::string text);
 }; };
 
 #endif

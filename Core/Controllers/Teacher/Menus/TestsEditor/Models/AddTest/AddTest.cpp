@@ -3,7 +3,7 @@
 void AddTest::open(void) {
     init();
     
-    while ((locale != Locale::exit) || (!isExit)) {
+    while ((locale != Locale::exit) || (!is_exit)) {
         switch (locale) {
             case Locale::text_bar:
                 if ( active_text_bar() )
@@ -66,7 +66,7 @@ void AddTest::reset(void) {
     global_locale = GlobalLocale::question;
     is_check_bar = GlobalLocale::question;
     
-    isExit = false;
+    is_exit = false;
     isMessage = false;
     
     index = 0;

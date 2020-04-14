@@ -30,7 +30,7 @@ bool EditMenu::active_password(void) {
             if (deep) {
                 if (real_password.size()) {
                     // db password
-                    m_db_user.setPassword(m_User->login, real_password);
+                    m_db_user.set_password(m_User->login, real_password);
                     
                     deep = false;
                     

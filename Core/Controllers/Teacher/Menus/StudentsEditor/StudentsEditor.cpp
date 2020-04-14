@@ -2,7 +2,7 @@
 
 void StudentsEditor::open(void) {
     init();
-    while ((locale != Locale::Exit) || (!isExit)) {
+    while ((locale != Locale::Exit) || (!is_exit)) {
         switch (locale) {
             case Locale::AddMenu:
                 if ( active_add() )
@@ -50,5 +50,5 @@ void StudentsEditor::init(void) {
 void StudentsEditor::reset(void) {
     m_Window = nullptr;
     locale = Locale::AddMenu;
-    isExit = false;
+    is_exit = false;
 }

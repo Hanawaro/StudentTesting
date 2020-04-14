@@ -3,7 +3,7 @@
 void Training::start(void) {
     init();
     
-    while ((locale != Locale::Exit) || (!isExit)) {
+    while ((locale != Locale::Exit) || (!is_exit)) {
         switch (locale) {
             case Locale::First:
                 if ( active_first() && !empty)
@@ -52,7 +52,7 @@ void Training::reset(void) {
     m_Window = nullptr;
     locale = Locale::First;
     
-    isExit = false;
+    is_exit = false;
     isError = false;
     empty = false;
     once = false;

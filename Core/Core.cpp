@@ -1,13 +1,13 @@
 #include "Core.hpp"
 
-void Core::Start(void) {
+void Core::start(void) {
     bool loop = false;
     do {
-        User user = authorization.authorization();
+        User user = m_authorization.authorization();
         if (user.status == Status::Teacher) {
-            loop = teacher.open(user);
+            loop = m_teacher.open(user);
         } else if (user.status == Status::Student) {
-            loop = student.open(user);
+            loop = m_student.open(user);
         } else {
             loop = false;
         }

@@ -100,21 +100,21 @@ static int32_t getBackAmount(int32_t amount) {
     }
 }
 
-void db_student::setLogin(const std::string& key, const std::string& login) const {
+void db_student::set_login(const std::string& key, const std::string& login) const {
     char tmp[255];
     int limit = 0;
-    std::ifstream db(m_Path, std::ios::binary);
+    std::ifstream db(m_path, std::ios::binary);
     bool notFound = true;
     if (db) {
         do {
             db.seekg(limit, std::ios::beg);
             db.read(tmp, 255);
-            if (std::string(Security::Cipher::getUnChipher(tmp).c_str()) == key) {
+            if (std::string(Security::Cipher::get_un_chipher(tmp).c_str()) == key) {
 				db.close();
-				std::ofstream write_login(m_Path, std::ios::binary | std::ios::in);
+				std::ofstream write_login(m_path, std::ios::binary | std::ios::in);
 				write_login.seekp(limit, std::ios::beg);
 				write_login.seekp(limit, std::ios::beg);
-				write_login.write(Security::Cipher::getChipher(login.c_str()).c_str(), 255);
+				write_login.write(Security::Cipher::get_chipher(login.c_str()).c_str(), 255);
 				write_login.close();
 				return;
             }
@@ -126,18 +126,18 @@ void db_student::setLogin(const std::string& key, const std::string& login) cons
     }
 }
 
-void db_student::setFirst(const std::string& key, Mark first, int32_t amount) const {
+void db_student::set_first(const std::string& key, Mark first, int32_t amount) const {
     char tmp[255];
     int limit = 0;
-	std::ifstream db(m_Path, std::ios::binary);
+	std::ifstream db(m_path, std::ios::binary);
     bool notFound = true;
     if (db) {
         do {
             db.seekg(limit, std::ios::beg);
             db.read(tmp, 255);
-            if (std::string(Security::Cipher::getUnChipher(tmp).c_str()) == key) {
+            if (std::string(Security::Cipher::get_un_chipher(tmp).c_str()) == key) {
 				db.close();
-				std::ofstream write_login(m_Path, std::ios::binary | std::ios::in);
+				std::ofstream write_login(m_path, std::ios::binary | std::ios::in);
 				write_login.seekp(limit, std::ios::beg);
                 int32_t tmp_mark = getMark(first);
                 int32_t tmp_amount = getAmount(amount);
@@ -155,18 +155,18 @@ void db_student::setFirst(const std::string& key, Mark first, int32_t amount) co
     }
 }
 
-void db_student::setSecond(const std::string& key, Mark second, int32_t amount) const {
+void db_student::set_second(const std::string& key, Mark second, int32_t amount) const {
     char tmp[255];
     int limit = 0;
-    std::ifstream db(m_Path, std::ios::binary);
+    std::ifstream db(m_path, std::ios::binary);
     bool notFound = true;
     if (db) {
         do {
             db.seekg(limit, std::ios::beg);
             db.read(tmp, 255);
-            if (std::string(Security::Cipher::getUnChipher(tmp).c_str()) == key) {
+            if (std::string(Security::Cipher::get_un_chipher(tmp).c_str()) == key) {
 				db.close();
-				std::ofstream write_login(m_Path, std::ios::binary | std::ios::in);
+				std::ofstream write_login(m_path, std::ios::binary | std::ios::in);
 				write_login.seekp(limit, std::ios::beg);
                 int32_t tmp_mark = getMark(second);
                 int32_t tmp_amount = getAmount(amount);
@@ -184,18 +184,18 @@ void db_student::setSecond(const std::string& key, Mark second, int32_t amount) 
     }
 }
 
-void db_student::setThird(const std::string& key, Mark third, int32_t amount) const {
+void db_student::set_third(const std::string& key, Mark third, int32_t amount) const {
     char tmp[255];
     int limit = 0;
-    std::ifstream db(m_Path, std::ios::binary);
+    std::ifstream db(m_path, std::ios::binary);
     bool notFound = true;
     if (db) {
         do {
             db.seekg(limit, std::ios::beg);
             db.read(tmp, 255);
-            if (std::string(Security::Cipher::getUnChipher(tmp).c_str()) == key) {
+            if (std::string(Security::Cipher::get_un_chipher(tmp).c_str()) == key) {
 				db.close();
-				std::ofstream write_login(m_Path, std::ios::binary | std::ios::in);
+				std::ofstream write_login(m_path, std::ios::binary | std::ios::in);
 				write_login.seekp(limit, std::ios::beg);
                 int32_t tmp_mark = getMark(third);
                 int32_t tmp_amount = getAmount(amount);
@@ -213,18 +213,18 @@ void db_student::setThird(const std::string& key, Mark third, int32_t amount) co
     }
 }
 
-void db_student::setTotal(const std::string& key, Mark total, int32_t amount) const {
+void db_student::set_total(const std::string& key, Mark total, int32_t amount) const {
     char tmp[255];
     int limit = 0;
-    std::ifstream db(m_Path, std::ios::binary);
+    std::ifstream db(m_path, std::ios::binary);
     bool notFound = true;
     if (db) {
         do {
             db.seekg(limit, std::ios::beg);
             db.read(tmp, 255);
-            if (std::string(Security::Cipher::getUnChipher(tmp).c_str()) == key) {
+            if (std::string(Security::Cipher::get_un_chipher(tmp).c_str()) == key) {
 				db.close();
-				std::ofstream write_login(m_Path, std::ios::binary | std::ios::in);
+				std::ofstream write_login(m_path, std::ios::binary | std::ios::in);
 				write_login.seekp(limit, std::ios::beg);
                 int32_t tmp_mark = getMark(total);
                 int32_t tmp_amount = getAmount(amount);
@@ -242,14 +242,14 @@ void db_student::setTotal(const std::string& key, Mark total, int32_t amount) co
     }
 }
     
-void db_student::addStudent(const std::string& key, Mark first, int32_t amount_of_first, Mark second, int32_t amount_of_second, Mark third, int32_t amount_of_third, Mark total, int32_t amount_of_total) const {
-    std::ofstream db(m_Path, std::ios::binary | std::ios::in);
+void db_student::add_student(const std::string& key, Mark first, int32_t amount_of_first, Mark second, int32_t amount_of_second, Mark third, int32_t amount_of_third, Mark total, int32_t amount_of_total) const {
+    std::ofstream db(m_path, std::ios::binary | std::ios::in);
 	db.seekp(0, std::ios::end);
     
     int32_t tmp_mark = 0;
     int32_t tmp_amount = 0;
     
-    db.write(Security::Cipher::getChipher( key ).c_str(), 255);
+    db.write(Security::Cipher::get_chipher( key ).c_str(), 255);
     
     tmp_mark = getMark(first);
     tmp_amount = getAmount(amount_of_first);
@@ -274,9 +274,9 @@ void db_student::addStudent(const std::string& key, Mark first, int32_t amount_o
     db.close();
 }
 
-void db_student::removeStudent(const std::string& key) {
+void db_student::remove_student(const std::string& key) {
     // replace
-    std::ifstream db_tmp(m_Path, std::ios::binary);
+    std::ifstream db_tmp(m_path, std::ios::binary);
     
     char input_key[255];
     int32_t tmp_mark = 0;
@@ -290,7 +290,7 @@ void db_student::removeStudent(const std::string& key) {
         do {
             db_tmp.seekg(limit, std::ios::beg);
             db_tmp.read(input_key, 255);
-            if (std::string(Security::Cipher::getUnChipher(input_key).c_str()) == key) {
+            if (std::string(Security::Cipher::get_un_chipher(input_key).c_str()) == key) {
                 notFound = false;
             }
             if (db_tmp.eof())
@@ -305,20 +305,20 @@ void db_student::removeStudent(const std::string& key) {
     
     if (!notFound) {
         // rewrite
-        std::ifstream db(m_Path, std::ios::binary);
-        std::ofstream tmp(m_Path + ".tmp", std::ios::binary);
+        std::ifstream db(m_path, std::ios::binary);
+        std::ofstream tmp(m_path + ".tmp", std::ios::binary);
         
         limit = 0;
         db.seekg(limit, std::ios::beg);
         while (limit < real_limit) {
             db.read(input_key, 255);
             
-            if (std::string(Security::Cipher::getUnChipher(input_key).c_str()) == key) {
+            if (std::string(Security::Cipher::get_un_chipher(input_key).c_str()) == key) {
                 limit += 8*4 + 255;
                 continue;
             }
             
-            tmp.write(Security::Cipher::getChipher(key).c_str(), 255);
+            tmp.write(Security::Cipher::get_chipher(key).c_str(), 255);
             
             for (int i = 0; i < 4; i++) {
                 db.read((char *)&tmp_mark, sizeof(int32_t));
@@ -333,8 +333,8 @@ void db_student::removeStudent(const std::string& key) {
         db.close();
         tmp.close();
         
-        remove(m_Path.c_str());
-        rename((m_Path+ ".tmp").c_str(), m_Path.c_str());
+        remove(m_path.c_str());
+        rename((m_path+ ".tmp").c_str(), m_path.c_str());
     }
 }
 
@@ -346,14 +346,14 @@ class Student db_student::load_student(const std::string& key) const {
 
     char tmp[255];
     int limit = 0;
-    std::ifstream db(m_Path, std::ios::binary);
+    std::ifstream db(m_path, std::ios::binary);
     bool notFound = true;
     if (db) {
         do {
             db.seekg(limit, std::ios::beg);
             db.read(tmp, 255);
 	
-            if (std::string(Security::Cipher::getUnChipher(tmp).c_str()) == key) {
+            if (std::string(Security::Cipher::get_un_chipher(tmp).c_str()) == key) {
                 int32_t tmp_mark = 0;
                 int32_t tmp_amount = 0;
                 

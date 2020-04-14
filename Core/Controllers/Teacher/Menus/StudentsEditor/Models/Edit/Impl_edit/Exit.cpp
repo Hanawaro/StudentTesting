@@ -23,7 +23,7 @@ bool Edit::active_exit(void) {
                 }
                 real_login = users[user_index].login;
                 reset_login();
-                real_name = users[user_index].first_name;
+                real_name = users[user_index].name;
                 reset_change();
                 draw();
             }
@@ -37,7 +37,7 @@ bool Edit::active_exit(void) {
                 }
                 real_login = users[user_index].login;
                 reset_login();
-                real_name = users[user_index].first_name;
+                real_name = users[user_index].name;
                 reset_change();
                 draw();
             }
@@ -55,7 +55,7 @@ bool Edit::active_exit(void) {
             locale = Locale::Login;
             break;
         case '\n':
-            isExit = true;
+            is_exit = true;
             break;
         default:
             break;

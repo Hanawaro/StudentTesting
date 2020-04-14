@@ -60,7 +60,7 @@ private:
     class EditMenu editMenu;
     
     bool deep = false;
-    bool isExit = false;
+    bool is_exit = false;
     
     int user_index = 0;
     

@@ -37,8 +37,11 @@ bool TestsEditor::active_remove(void) {
                     m_db_test_third.remove_test(all_tests[2][index]);
                     break;
             }
-            all_tests[g_locale].erase(all_tests[g_locale].begin() + index);
-            if (all_tests[g_locale].size()%MAXIMAL_TESTS == 0)
+            if (all_tests[g_locale].size() > 1)
+                all_tests[g_locale].erase(all_tests[g_locale].begin() + index);
+            else
+                all_tests[g_locale].clear();
+            if (all_tests[g_locale].size()%MAXIMAL_TESTS == 0 && page > 1)
                 page--;
             set_tests();
             if (!empty[g_locale]) {

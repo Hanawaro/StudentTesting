@@ -49,7 +49,7 @@ private:
     Edit edit;
     Show show;
     
-    bool isExit = false;
+    bool is_exit = false;
     
     const std::string text_hello    = "Меню редактирования учеников";
     const std::string text_add      = " Добавить ученика ";

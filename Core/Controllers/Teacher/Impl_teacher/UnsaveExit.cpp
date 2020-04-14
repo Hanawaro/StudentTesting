@@ -16,8 +16,8 @@ bool TeacherMenu::active_unsave_exit(void) {
             locale = Locale::Exit;
             break;
         case '\n':
-            isExit = true;
-            isAuth = false;
+            is_exit = true;
+            is_auth = false;
             draw();
             break;
         default:

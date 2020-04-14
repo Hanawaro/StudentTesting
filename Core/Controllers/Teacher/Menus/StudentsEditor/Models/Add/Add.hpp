@@ -60,7 +60,7 @@ private:
     Locale locale = Locale::Login;
     db_user m_db_user;
 
-    bool isExit = false;
+    bool is_exit = false;
 
     // texts
     std::string text_hello        = "Регистрация нового ученика";

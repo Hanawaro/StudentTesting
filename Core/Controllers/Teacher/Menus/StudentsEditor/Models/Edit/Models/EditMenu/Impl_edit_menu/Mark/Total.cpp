@@ -74,7 +74,7 @@ bool EditMenu::active_total(void) {
             if (deep) {
                 deep = false;
                 m_Marks.total = mark_total;
-                m_db_student.setTotal(m_User->login, m_Marks.total, m_Marks.amount_of_total);
+                m_db_student.set_total(m_User->login, m_Marks.total, m_Marks.amount_of_total);
                 reset_total();
                 draw();
             } else {

@@ -2,7 +2,7 @@
 
 void Show::open(void) {
     init();
-    while ((locale != Locale::Exit) || (!isExit)) {
+    while ((locale != Locale::Exit) || (!is_exit)) {
         switch (locale) {
             case Locale::StudentsMenu:
                 if ( active_students() )
@@ -61,5 +61,5 @@ void Show::reset(void) {
     m_Window = nullptr;
     locale = Locale::StudentsMenu;
     
-    isExit = false;
+    is_exit = false;
 }

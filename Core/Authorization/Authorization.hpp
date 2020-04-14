@@ -57,9 +57,9 @@ private:
     WINDOW* m_Window = nullptr;
     Locale locale = Locale::Login;
     
-    bool isAuth = false;
+    bool is_auth = false;
     bool isSave = false;
-    bool isExit = false;
+    bool is_exit = false;
     
     // text
     std::string text_hello    = "АВТОРИЗАЦИЯ";
