@@ -306,11 +306,15 @@ void db_student::remove_student(const std::string& key) {
     if (!notFound) {
         // rewrite
         std::ifstream db(m_path, std::ios::binary);
+        
         std::ofstream tmp(m_path + ".tmp", std::ios::binary);
         
         limit = 0;
         db.seekg(limit, std::ios::beg);
+        tmp.seekp(0, std::ios::beg);
+        
         while (limit < real_limit) {
+            db.seekg(limit, std::ios::beg);
             db.read(input_key, 255);
             
             if (std::string(Security::Cipher::get_un_chipher(input_key).c_str()) == key) {
@@ -318,7 +322,7 @@ void db_student::remove_student(const std::string& key) {
                 continue;
             }
             
-            tmp.write(Security::Cipher::get_chipher(key).c_str(), 255);
+            tmp.write(input_key, 255);
             
             for (int i = 0; i < 4; i++) {
                 db.read((char *)&tmp_mark, sizeof(int32_t));
